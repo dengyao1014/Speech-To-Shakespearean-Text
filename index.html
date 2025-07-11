@@ -358,6 +358,21 @@
         }
         
         /* Why Section */
+        .section-intro, 
+        .section-conclusion {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .section-conclusion {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
         .reasons-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -684,6 +699,39 @@
             white-space: nowrap;
             border-width: 0;
         }
+        
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-color);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
     </style>
 </head>
 <body>
@@ -832,23 +880,49 @@
                 <h2>Why Use Our Shakespearean Translator?</h2>
                 <p>Discover the benefits of speaking like the Bard</p>
             </div>
+            <div class="section-intro">
+                <p>Our Shakespearean translator offers unique benefits that go beyond simple text conversion. By transforming modern English into the elegant prose of Shakespeare's era, our Shakespearean translator opens doors to creativity, learning, and entertainment. The Shakespearean translator preserves the essence of your message while adding the distinct flair that makes Shakespeare's works timeless. Whether you're a student, educator, writer, or simply a language enthusiast, our Shakespearean translator provides an authentic glimpse into the linguistic beauty of the Elizabethan era.</p>
+            </div>
             <div class="reasons-grid">
                 <div class="reason-card">
                     <h3>Educational Value</h3>
-                    <p>Perfect for students studying Shakespeare's works or teachers creating engaging literature lessons.</p>
+                    <p>Perfect for students studying Shakespeare's works or teachers creating engaging literature lessons. Our Shakespearean translator helps learners understand the structure and style of Elizabethan English through practical application. By comparing modern phrases with their Shakespearean equivalents, students gain deeper insights into language evolution and literary techniques that make Shakespeare's works so distinctive.</p>
                 </div>
                 <div class="reason-card">
                     <h3>Creative Writing</h3>
-                    <p>Inspire your writing with the eloquence and rich vocabulary of Elizabethan English.</p>
+                    <p>Inspire your writing with the eloquence and rich vocabulary of Elizabethan English. The Shakespearean translator serves as a creative springboard, helping writers develop character dialogue for historical fiction, craft poetry with classical sensibilities, or simply break free from conventional modern expressions. Many authors use our Shakespearean translator to add authenticity to period pieces or create memorable character voices.</p>
                 </div>
                 <div class="reason-card">
                     <h3>Entertainment</h3>
-                    <p>Impress friends with Shakespearean insults or write romantic messages with timeless elegance.</p>
+                    <p>Impress friends with Shakespearean insults or write romantic messages with timeless elegance. The Shakespearean translator transforms ordinary conversation into extraordinary exchanges that delight and surprise. From witty comebacks to heartfelt declarations of love, everything sounds more impressive when expressed through our Shakespearean translator's eloquent transformations.</p>
                 </div>
                 <div class="reason-card">
                     <h3>Theatrical Practice</h3>
-                    <p>Actors can use this tool to better understand the rhythm and flow of Shakespearean dialogue.</p>
+                    <p>Actors can use this tool to better understand the rhythm and flow of Shakespearean dialogue. Our Shakespearean translator helps performers develop an ear for the cadence and structure of Elizabethan speech, making rehearsals more productive. Many theater companies incorporate the Shakespearean translator into their training programs to help actors become more comfortable with classical text.</p>
                 </div>
+                <div class="reason-card">
+                    <h3>Language Learning</h3>
+                    <p>The Shakespearean translator provides a fascinating window into the evolution of English. By comparing modern expressions with their Shakespearean equivalents, language learners gain insights into etymology, historical linguistics, and the development of English over centuries. Our Shakespearean translator makes abstract language concepts tangible through immediate, practical examples that illustrate how English has changed while retaining its core structure.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Social Media Content</h3>
+                    <p>Create unique, shareable content that stands out in social feeds. The Shakespearean translator transforms ordinary updates into attention-grabbing posts that entertain followers and showcase your creativity. Content creators regularly use our Shakespearean translator to develop themed posts, generate engagement, and add a distinctive voice to their social media presence that rises above the ordinary.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Cultural Appreciation</h3>
+                    <p>Gain deeper appreciation for one of history's most influential literary figures. Our Shakespearean translator doesn't just convert text—it connects users to a cultural tradition that has shaped literature, theater, and language for centuries. By engaging with Shakespearean language through our translator, users develop a more nuanced understanding of how Shakespeare's innovations continue to influence modern communication.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Professional Development</h3>
+                    <p>For educators, writers, and communication professionals, our Shakespearean translator offers valuable insights into effective language use. Understanding Shakespearean rhetoric and wordplay enhances modern communication skills, as many of the persuasive techniques pioneered in Elizabethan theater remain powerfully effective today. The Shakespearean translator serves as a practical tool for professional growth in fields where language mastery matters.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Historical Immersion</h3>
+                    <p>Experience communication as it might have occurred in Shakespeare's London. Our Shakespearean translator bridges the gap between modern users and historical language contexts, creating an immersive experience that history enthusiasts and Renaissance fair participants particularly appreciate. By transforming everyday phrases into their Shakespearean equivalents, our translator helps users step briefly into another time.</p>
+                </div>
+            </div>
+            <div class="section-conclusion">
+                <p>The Shakespearean translator we've developed isn't merely a novelty—it's a versatile tool with applications spanning education, entertainment, professional development, and creative expression. By transforming modern English into the rich, evocative language of Shakespeare's era, our Shakespearean translator helps preserve and celebrate linguistic heritage while making historical language accessible to contemporary users. Whether you're preparing for a performance, enhancing a lesson plan, or simply exploring the beauty of Elizabethan English, our Shakespearean translator offers an authentic, enriching experience that connects you to one of history's most celebrated literary traditions.</p>
             </div>
         </div>
     </section>
@@ -1027,6 +1101,13 @@
         </div>
     </footer>
     
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" title="返回顶部">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js" type="text/javascript"></script>
     <script>
@@ -1053,6 +1134,35 @@
                 });
             });
         });
+        
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) { // Show button after scrolling 300px
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Logo click to top functionality
+        document.querySelector('.logo-container').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Add cursor pointer to logo container
+        document.querySelector('.logo-container').style.cursor = 'pointer';
     </script>
 </body>
 </html>
