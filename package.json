@@ -1,0 +1,21 @@
+{
+  "name": "speech-to-shakespearean-text",
+  "version": "1.0.0",
+  "description": "A web app that translates modern English speech to Old Shakespearean English text",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve",
+    "start": "serve"
+  },
+  "keywords": [
+    "shakespeare",
+    "translator",
+    "speech",
+    "web"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.0.0"
+  }
+} 

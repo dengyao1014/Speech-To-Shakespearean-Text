@@ -4,87 +4,290 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpeechToTextApp</title>
+    <title>Shakespeare Translator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        h1{
-            text-align: center;
-            font-family: 'Dancing Script', cursive;
-            font-size: 60px;
+        :root {
+            --primary-color: #1d1e2c;
+            --secondary-color: #7c3aed;
+            --accent-color: #b45309;
+            --light-bg: #f8f9fa;
+            --dark-text: #1d1e2c;
+            --light-text: #f8f9fa;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-
-        p{
-            text-align: center;
-            font-family: 'Courgette', cursive;
-            line-height: 2;
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
-        textarea{
-            margin-right: auto;
-            margin-left: auto;
-            display: block;
-            height: 15vh;
-            width: 70%;
-            border: 2px solid black;
-            margin-top: 3rem;
-            text-align: center;
-            font-family: 'Courgette', cursive;
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            font-family: 'EB Garamond', serif;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
         }
-        h2{
-            font-size: 15px;
-            font-family: 'Courgette', cursive;
-            font-weight: 200;
-            text-align: center;
-        }
-        button{
+        
+        .container {
+            max-width: 900px;
             margin: 0 auto;
-            display: inline block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 2rem;
-            background-color: rgb(201, 17, 17);
-            color: white;
-            font-family: 'Courgette', cursive;
+            padding: 20px;
         }
-        body{
-            background-color:rgb(224, 220, 220)
+        
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
-
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+        
+        .intro {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .instructions {
+            font-size: 0.9rem;
+            background-color: rgba(124, 58, 237, 0.1);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .translation-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 16px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0,0,0,0.2);
+            font-family: 'EB Garamond', serif;
+            font-size: 1.1rem;
+            box-shadow: var(--box-shadow);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background-color: white;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
+        }
+        
+        .output-container {
+            position: relative;
+        }
+        
         #output {
-          height: 17vh;
-          width: 70%;
-          border: 2px solid black;
-          background-color: white;
-          justify-content: center;
-          display: block;
-          margin-right: auto;
-          margin-left: auto;
-          margin-top: 2rem;
-          margin-bottom: 4rem;
-          color: black;
-          font-family: 'Courgette', cursive;
-          text-align: center;
+            width: 100%;
+            min-height: 120px;
+            padding: 16px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0,0,0,0.2);
+            background-color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            box-shadow: var(--box-shadow);
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            position: relative;
+        }
+        
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: right;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+        
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 24px 0;
+        }
+        
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: 'EB Garamond', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--box-shadow);
+        }
+        
+        #btn-start {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        #btn-translate {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        button:active {
+            transform: translateY(0);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .credit {
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 40px;
+            color: rgba(0,0,0,0.5);
+        }
+        
+        /* For tablets */
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        /* For mobile phones */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+        
+        /* Status indicator */
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+            background-color: #6b7280;
+        }
+        
+        .recording .status-indicator {
+            background-color: #ef4444;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
     </style>
-
 </head>
 <body>
-    <h1>The Bard of Avon Translator</h1>
-    <p>William Shakespeare, also known as "the Bard of Avon" invented many words and his style of narration in many ways was unique to his time. His ever popular works ( dramas and poems ) makes his language style live even today.</p> 
-    <p>This translator takes your speech in English as input and converts to Shakespearean English text. Try It!</p>
-    <h2>Instructions: Click on the Start button and start speaking. The text that appears in the upper box is the text that will be translated. After you complete speaking your sentence, click on the Translate button. The translated text appears in the lower box. Refresh the page if you want to try it once again!</h2>
-    <section>
-        <textarea id="text-input"></textarea>
-    </section>
-    <button id="btn-start">Start</button>
-    <button id="btn-translate">Translate</button>
-    <div id="output"></div>
+    <div class="container">
+        <header>
+            <!-- SVG Logo -->
+            <svg class="logo" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="#1d1e2c"/>
+                <path d="M30 10C26 20 15 25 15 35C15 45 25 50 30 50C35 50 45 45 45 35C45 25 34 20 30 10Z" fill="#7c3aed"/>
+                <path d="M30 10C28 16 23 20 23 25C23 30 26 35 30 35C34 35 37 30 37 25C37 20 32 16 30 10Z" fill="#b45309"/>
+            </svg>
+            <h1>The Bard of Avon Translator</h1>
+        </header>
+        
+        <div class="intro">
+            <p>William Shakespeare, known as "the Bard of Avon," invented many words and phrases, with a narration style unique to his era. His works — both plays and poems — keep his language alive to this day.</p>
+            <p>This translator converts your modern English speech into Shakespearean English. Try it yourself!</p>
+        </div>
+        
+        <div class="instructions">
+            <p><strong>Instructions:</strong> Click the "Start Recording" button and begin speaking. Your speech will appear in the top box. When finished speaking, click "Translate" to convert your text into Shakespearean English in the bottom box. Refresh the page to start anew.</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="translation-container">
+                <textarea id="text-input" placeholder="Your modern English will appear here..."></textarea>
+            </div>
+            
+            <div class="button-group">
+                <button id="btn-start"><span class="status-indicator"></span>Start Recording</button>
+                <button id="btn-translate">Translate to Shakespearean</button>
+            </div>
+            
+            <div class="output-container">
+                <div id="output">Shakespearean translation will appear here...</div>
+                <div class="signature">— William Shakespeare</div>
+            </div>
+        </div>
+        
+        <div class="credit">
+            <p>Powered by Web Speech API and Fun Translations API</p>
+        </div>
+    </div>
     
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js" type="text/javascript"></script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="script.js" type="text/javascript"></script>
-
 </html>
