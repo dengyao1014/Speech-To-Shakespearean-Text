@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shakespeare Translator</title>
+    <title>Shakespearean Translator - Transform Modern English to Old English</title>
+    <meta name="description" content="Convert your modern English speech into Shakespearean style with our free translator tool. Experience the elegance of Elizabethan English.">
+    <meta name="keywords" content="shakespearean translator, shakespeare, elizabethan english, old english translator, shakespeare translator">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -36,56 +38,181 @@
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
         
-        header {
+        section {
+            padding: 80px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: #fff;
+        }
+        
+        .section-heading {
             text-align: center;
-            padding: 40px 0 20px;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         
-        h1 {
+        .section-heading h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 600;
+            font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 16px;
         }
         
+        .section-heading p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
         .logo {
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--light-text);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/random/1600x900/?shakespeare,vintage');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            text-align: center;
+            padding: 120px 0;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
             margin-bottom: 20px;
         }
         
-        p {
-            text-align: center;
-            line-height: 1.8;
-            margin-bottom: 16px;
-            font-size: 1.1rem;
-        }
-        
-        .intro {
+        .hero p {
+            font-size: 1.2rem;
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 40px;
         }
         
-        .instructions {
-            font-size: 0.9rem;
-            background-color: rgba(124, 58, 237, 0.1);
-            padding: 15px;
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
             border-radius: var(--border-radius);
-            margin-bottom: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'EB Garamond', serif;
         }
         
-        .main-content {
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(124, 58, 237, 0.1);
+            border-radius: 50%;
+        }
+        
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+        }
+        
+        /* Translator Tool Section */
+        .translator-tool {
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
         }
         
         .translation-container {
@@ -111,34 +238,6 @@
             outline: none;
             border-color: var(--secondary-color);
             box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
-        }
-        
-        .output-container {
-            position: relative;
-        }
-        
-        #output {
-            width: 100%;
-            min-height: 120px;
-            padding: 16px;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(0,0,0,0.2);
-            background-color: white;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            box-shadow: var(--box-shadow);
-            white-space: pre-wrap;
-            overflow-wrap: break-word;
-            position: relative;
-        }
-        
-        .signature {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            text-align: right;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: var(--accent-color);
         }
         
         .button-group {
@@ -180,38 +279,276 @@
             box-shadow: var(--box-shadow);
         }
         
-        .credit {
+        /* 复制按钮样式 */
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            background-color: rgba(255, 255, 255, 1);
+        }
+        
+        .copy-btn .tooltip {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .copy-btn.copied .tooltip {
+            opacity: 1;
+            visibility: visible;
+            background-color: #10b981;
+        }
+        
+        .output-container {
+            position: relative;
+        }
+        
+        #output {
+            width: 100%;
+            min-height: 120px;
+            padding: 16px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0,0,0,0.2);
+            background-color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            box-shadow: var(--box-shadow);
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+            position: relative;
+        }
+        
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: right;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+        
+        /* Why Section */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .reason-card {
+            padding: 20px;
+            border-left: 4px solid var(--secondary-color);
+            background-color: white;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .reason-card h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        /* How To Section */
+        .steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background-color: var(--accent-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
             text-align: center;
-            font-size: 0.8rem;
-            margin-top: 40px;
-            color: rgba(0,0,0,0.5);
         }
         
-        /* For tablets */
-        @media (max-width: 768px) {
-            .container {
-                padding: 16px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
+        .pricing-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
         }
         
-        /* For mobile phones */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .button-group {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            button {
-                width: 100%;
-            }
+        .price {
+            font-size: 2.5rem;
+            margin: 15px 0;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .pricing-features {
+            padding: 20px;
+            list-style: none;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-card .cta-button {
+            display: block;
+            text-align: center;
+            margin: 20px;
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background-color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #f9f9f9;
+        }
+        
+        .faq-answer p {
+            padding: 20px 0;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 50px 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         /* Status indicator */
@@ -243,51 +580,422 @@
                 opacity: 1;
             }
         }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                box-shadow: var(--box-shadow);
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 15px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-heading h2 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <!-- SVG Logo -->
-            <svg class="logo" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="30" cy="30" r="28" fill="#1d1e2c"/>
-                <path d="M30 10C26 20 15 25 15 35C15 45 25 50 30 50C35 50 45 45 45 35C45 25 34 20 30 10Z" fill="#7c3aed"/>
-                <path d="M30 10C28 16 23 20 23 25C23 30 26 35 30 35C34 35 37 30 37 25C37 20 32 16 30 10Z" fill="#b45309"/>
-            </svg>
-            <h1>The Bard of Avon Translator</h1>
-        </header>
-        
-        <div class="intro">
-            <p>William Shakespeare, known as "the Bard of Avon," invented many words and phrases, with a narration style unique to his era. His works — both plays and poems — keep his language alive to this day.</p>
-            <p>This translator converts your modern English speech into Shakespearean English. Try it yourself!</p>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <svg class="logo" width="40" height="40" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" fill="#7c3aed"/>
+                        <path d="M30 10C26 20 15 25 15 35C15 45 25 50 30 50C35 50 45 45 45 35C45 25 34 20 30 10Z" fill="#b45309"/>
+                        <path d="M30 10C28 16 23 20 23 25C23 30 26 35 30 35C34 35 37 30 37 25C37 20 32 16 30 10Z" fill="#ffffff"/>
+                    </svg>
+                    <span class="logo-text">Shakespearean Translator</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#what-is">What is it?</a></li>
+                    <li><a href="#why">Why Use it?</a></li>
+                    <li><a href="#how-to">How to Use</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
         </div>
-        
-        <div class="instructions">
-            <p><strong>Instructions:</strong> Click the "Start Recording" button and begin speaking. Your speech will appear in the top box. When finished speaking, click "Translate" to convert your text into Shakespearean English in the bottom box. Refresh the page to start anew.</p>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Your Words into Shakespearean Glory</h1>
+            <p>Experience the elegant prose of the Bard of Avon with our instant speech-to-Shakespearean text translator.</p>
+            <a href="#translator" class="cta-button">Try it now for free</a>
         </div>
-        
-        <div class="main-content">
-            <div class="translation-container">
-                <textarea id="text-input" placeholder="Your modern English will appear here..."></textarea>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Powerful Features</h2>
+                <p>Discover what makes our Shakespearean translator unique</p>
             </div>
-            
-            <div class="button-group">
-                <button id="btn-start"><span class="status-indicator"></span>Start Recording</button>
-                <button id="btn-translate">Translate to Shakespearean</button>
-            </div>
-            
-            <div class="output-container">
-                <div id="output">Shakespearean translation will appear here...</div>
-                <div class="signature">— William Shakespeare</div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <line x1="12" y1="19" x2="12" y2="23"></line>
+                            <line x1="8" y1="23" x2="16" y2="23"></line>
+                        </svg>
+                    </div>
+                    <h3>Voice Recognition</h3>
+                    <p>Simply speak into your microphone and watch your speech convert into text automatically.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>Authentic Transformation</h3>
+                    <p>Our algorithm applies over 50 linguistic rules to create authentic Elizabethan English.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>Works Offline</h3>
+                    <p>No internet required for translations - everything happens locally in your browser.</p>
+                </div>
             </div>
         </div>
-        
-        <div class="credit">
-            <p>Powered by Web Speech API and Fun Translations API</p>
+    </section>
+
+    <!-- What Is Section -->
+    <section id="what-is">
+        <div class="container">
+            <div class="section-heading">
+                <h2>What is a Shakespearean Translator?</h2>
+                <p>Bringing the language of the Elizabethan era to modern times</p>
+            </div>
+            <div class="content-columns">
+                <div>
+                    <p>A Shakespearean translator converts modern English into the style of language used during Shakespeare's time (late 16th and early 17th centuries), commonly known as Early Modern English.</p>
+                    <p>Our translator uses linguistic transformation rules to adjust pronouns (you → thee/thou), verb forms (have → hath), and vocabulary to match the Elizabethan style that Shakespeare used in his famous plays and sonnets.</p>
+                    <p>Whether you're a student, teacher, actor, writer, or simply a lover of literature, our Shakespearean translator helps you experience the beauty and elegance of this historical form of English.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Translator Tool Section -->
+    <section id="translator">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Try Our Shakespearean Translator</h2>
+                <p>Speak or type your text and witness the transformation</p>
+            </div>
+            <div class="translator-tool">
+                <div class="translation-container">
+                    <textarea id="text-input" placeholder="Your modern English will appear here..."></textarea>
+                </div>
+                
+                <div class="button-group">
+                    <button id="btn-start"><span class="status-indicator"></span>Start Recording</button>
+                    <button id="btn-translate">Translate to Shakespearean</button>
+                </div>
+                
+                <div class="output-container">
+                    <div id="output">Shakespearean translation will appear here...</div>
+                    <div class="copy-btn" title="Copy to clipboard">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span class="tooltip">Copy</span>
+                    </div>
+                    <div class="signature">— William Shakespeare</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section id="why">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Why Use Our Shakespearean Translator?</h2>
+                <p>Discover the benefits of speaking like the Bard</p>
+            </div>
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <h3>Educational Value</h3>
+                    <p>Perfect for students studying Shakespeare's works or teachers creating engaging literature lessons.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Creative Writing</h3>
+                    <p>Inspire your writing with the eloquence and rich vocabulary of Elizabethan English.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Entertainment</h3>
+                    <p>Impress friends with Shakespearean insults or write romantic messages with timeless elegance.</p>
+                </div>
+                <div class="reason-card">
+                    <h3>Theatrical Practice</h3>
+                    <p>Actors can use this tool to better understand the rhythm and flow of Shakespearean dialogue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How To Section -->
+    <section id="how-to">
+        <div class="container">
+            <div class="section-heading">
+                <h2>How to Use Our Translator</h2>
+                <p>Follow these simple steps to transform your language</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Start Recording</h3>
+                        <p>Click the "Start Recording" button and begin speaking clearly into your microphone. You'll see your words appear in the text box.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Review Your Text</h3>
+                        <p>Check the text for accuracy. You can also type or edit directly in the text box if needed.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Translate</h3>
+                        <p>Click the "Translate to Shakespearean" button to convert your modern English into Shakespearean style.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Enjoy the Result</h3>
+                        <p>Read your text in beautiful Shakespearean English. You can copy it for use in your projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that works best for you</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="price">$0 <span>/forever</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Unlimited translations</li>
+                        <li>✓ Voice recognition</li>
+                        <li>✓ Basic Shakespearean rules</li>
+                        <li>✓ Works offline</li>
+                        <li>✓ No account required</li>
+                        <li>× No advanced features</li>
+                    </ul>
+                    <a href="#translator" class="cta-button">Start Using</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header" style="background-color: var(--secondary-color);">
+                        <h3>Premium</h3>
+                        <div class="price">$4.99 <span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ All Free features</li>
+                        <li>✓ Advanced linguistic rules</li>
+                        <li>✓ Historical context analysis</li>
+                        <li>✓ Multiple dialect options</li>
+                        <li>✓ API access</li>
+                        <li>✓ Priority support</li>
+                    </ul>
+                    <a href="#" class="cta-button">Coming Soon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about our Shakespearean Translator</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How accurate is the translation?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our translator applies over 50 linguistic rules to create authentic-sounding Shakespearean English. While it's not a perfect historical reproduction, it captures the essence and style of Elizabethan English used during Shakespeare's time.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Does it work in all browsers?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The translation feature works in all modern browsers. However, the speech recognition feature works best in Chrome, Edge, and Safari. Firefox and other browsers may have limited support for the Web Speech API.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I use this for commercial purposes?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! The free version is available for personal and commercial use. If you need more advanced features or API access, consider our Premium plan (coming soon).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my data private?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! Since all translations happen locally in your browser, your text and voice data never leave your device. We have no servers storing your information.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Shakespearean Translator</h3>
+                    <p>Transform your modern English into beautiful Shakespearean prose with our free online tool.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#what-is">What is it?</a></li>
+                        <li><a href="#why">Why Use it?</a></li>
+                        <li><a href="#how-to">How to Use</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Shakespeare</a></li>
+                        <li><a href="#">Elizabethan English Guide</a></li>
+                        <li><a href="#">Shakespeare's Works</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Email Us</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Shakespearean Translator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js" type="text/javascript"></script>
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+        
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(function(question) {
+            question.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+                const plusMinus = this.querySelector('span:last-child');
+                plusMinus.textContent = plusMinus.textContent === '+' ? '−' : '+';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

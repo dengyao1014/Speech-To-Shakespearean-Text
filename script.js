@@ -7,9 +7,6 @@ var btnStart = $("#btn-start");
 var btnTranslate = $("#btn-translate");
 var output = $("#output");
 
-// API endpoint
-var serverURL = "https://api.funtranslations.com/translate/shakespeare.json";
-
 // Set speech recognition parameters
 recognition.continuous = true;
 recognition.lang = 'en-US';
@@ -26,37 +23,136 @@ btnTranslate.click(function(){
     // Show loading status
     output.text("Translating...");
     
-    // Construct API request URL
-    var apiURL = serverURL + "?text=" + encodeURIComponent(content);
-    
-    // Send API request
-    fetch(apiURL)
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(json => {
-          if (json.contents && json.contents.translated) {
-              var translatedText = json.contents.translated;
-              output.text(translatedText);
-          } else {
-              throw new Error('Translation result format incorrect');
-          }
-      })
-      .catch(errorHandler);
+    // Use local translation instead of API call
+    setTimeout(function() {
+        var translatedText = transformToShakespearean(content);
+        output.text(translatedText);
+    }, 500); // Add small delay for effect
 });
 
-// Error handling function
-function errorHandler(error) {
-    console.error("Error occurred:", error);
-    output.text("Sorry, the server encountered an issue or the API request limit has been reached! Please try again later.");
+// Shakespearean transformation function
+function transformToShakespearean(text) {
+    // Basic replacement rules
+    const rules = [
+        { modern: /you are/gi, shakespeare: "thou art" },
+        { modern: /your/gi, shakespeare: "thy" },
+        { modern: /you/gi, shakespeare: "thee" },
+        { modern: /hello|hi/gi, shakespeare: "good morrow" },
+        { modern: /goodbye/gi, shakespeare: "fare thee well" },
+        { modern: /friend/gi, shakespeare: "fellow" },
+        { modern: /yes/gi, shakespeare: "aye" },
+        { modern: /no/gi, shakespeare: "nay" },
+        { modern: /am not/gi, shakespeare: "am not" },
+        { modern: /isn't|is not/gi, shakespeare: "is't not" },
+        { modern: /aren't|are not/gi, shakespeare: "art not" },
+        { modern: /don't|do not/gi, shakespeare: "dost not" },
+        { modern: /doesn't|does not/gi, shakespeare: "doth not" },
+        { modern: /didn't|did not/gi, shakespeare: "did not" },
+        { modern: /haven't|have not/gi, shakespeare: "hath not" },
+        { modern: /hasn't|has not/gi, shakespeare: "hath not" },
+        { modern: /won't|will not/gi, shakespeare: "wilt not" },
+        { modern: /can't|cannot/gi, shakespeare: "canst not" },
+        { modern: /have|has/gi, shakespeare: "hath" },
+        { modern: /had/gi, shakespeare: "hadst" },
+        { modern: /am/gi, shakespeare: "art" },
+        { modern: /are/gi, shakespeare: "art" },
+        { modern: /were/gi, shakespeare: "wert" },
+        { modern: /will/gi, shakespeare: "shalt" },
+        { modern: /shall/gi, shakespeare: "shalt" },
+        { modern: /can/gi, shakespeare: "canst" },
+        { modern: /do/gi, shakespeare: "dost" },
+        { modern: /does/gi, shakespeare: "doth" },
+        { modern: /did/gi, shakespeare: "didst" },
+        { modern: /if/gi, shakespeare: "an" },
+        { modern: /my/gi, shakespeare: "mine" },
+        { modern: /i think/gi, shakespeare: "methinks" },
+        { modern: /i thought/gi, shakespeare: "methought" },
+        { modern: /i am/gi, shakespeare: "I be" },
+        { modern: /today/gi, shakespeare: "this day" },
+        { modern: /tonight/gi, shakespeare: "this night" },
+        { modern: /tomorrow/gi, shakespeare: "on the morrow" },
+        { modern: /yesterday/gi, shakespeare: "on the day before" },
+        { modern: /here/gi, shakespeare: "hither" },
+        { modern: /there/gi, shakespeare: "thither" },
+        { modern: /where/gi, shakespeare: "whither" },
+        { modern: /father/gi, shakespeare: "sire" },
+        { modern: /mother/gi, shakespeare: "dame" },
+        { modern: /parents/gi, shakespeare: "forbears" },
+        { modern: /before/gi, shakespeare: "ere" },
+        { modern: /sir/gi, shakespeare: "good sir" },
+        { modern: /lady/gi, shakespeare: "fair lady" },
+        { modern: /woman/gi, shakespeare: "maiden" },
+        { modern: /man/gi, shakespeare: "fellow" },
+        { modern: /people/gi, shakespeare: "gentle folk" },
+        { modern: /go/gi, shakespeare: "goeth" },
+        { modern: /went/gi, shakespeare: "didst go" },
+        { modern: /say/gi, shakespeare: "speaketh" },
+        { modern: /said/gi, shakespeare: "spake" },
+        { modern: /see/gi, shakespeare: "witness" },
+        { modern: /saw/gi, shakespeare: "didst witness" },
+        { modern: /know/gi, shakespeare: "knoweth" },
+        { modern: /knew/gi, shakespeare: "didst know" },
+        { modern: /tell/gi, shakespeare: "telleth" },
+        { modern: /told/gi, shakespeare: "didst tell" }
+    ];
     
-    // Fun Translations API has a free limit of 5 requests per hour, inform the user
-    if (error.message.includes('429')) {
-        output.text("Free API Limit: Fun Translations API has a free usage limit of 5 requests per hour. Please try again later.");
+    let result = text;
+    
+    // Apply replacement rules
+    rules.forEach(rule => {
+        result = result.replace(rule.modern, rule.shakespeare);
+    });
+    
+    // Add Shakespearean phrases at beginning (sometimes)
+    const beginnings = [
+        "Hark! ",
+        "Prithee, ",
+        "Forsooth, ",
+        "Verily, ",
+        "Lo! ",
+        "Alas, ",
+        "By my troth, ",
+        "Marry, ",
+        "Good my lord, ",
+        "In faith, "
+    ];
+    
+    // 30% chance to add beginning phrase
+    if (Math.random() < 0.3) {
+        const randomBeginning = beginnings[Math.floor(Math.random() * beginnings.length)];
+        result = randomBeginning + result.charAt(0).toLowerCase() + result.slice(1);
     }
+    
+    // Add Shakespearean endings (sometimes)
+    const endings = [
+        " Forsooth!",
+        " Prithee!",
+        ", I say!",
+        ", good sir!",
+        ", fair maiden!",
+        " Anon!",
+        " Huzzah!",
+        ", by my troth!",
+        ", verily!",
+        ", indeed!",
+        ", methinks!",
+        ", I prithee!",
+        " Odds bodkins!",
+        " Zounds!",
+        " Gadzooks!"
+    ];
+    
+    // 60% chance to add ending phrase
+    if (Math.random() < 0.6) {
+        const randomEnding = endings[Math.floor(Math.random() * endings.length)];
+        if (!result.endsWith('.') && !result.endsWith('!') && !result.endsWith('?')) {
+            result += randomEnding;
+        } else {
+            result = result.slice(0, -1) + randomEnding;
+        }
+    }
+    
+    return result;
 }
 
 // Speech recognition result event

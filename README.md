@@ -7,9 +7,10 @@ A web application that translates modern English speech to Old Shakespearean Eng
 ## Features
 
 - **Speech Recognition**: Converts your spoken words into text using the Web Speech API
-- **Shakespearean Translation**: Transforms modern English into Shakespearean style using the Fun Translations API
+- **Shakespearean Translation**: Transforms modern English into Shakespearean style using built-in transformation rules
 - **Modern UI**: Clean, responsive design that works on desktop and mobile devices
 - **Easy to Use**: Simple interface with clear instructions
+- **No API Dependency**: Works completely offline with no request limits
 
 ## How to Use
 
@@ -25,15 +26,19 @@ A web application that translates modern English speech to Old Shakespearean Eng
 This application uses:
 - HTML5, CSS3, and JavaScript
 - Web Speech API for speech recognition
-- Fun Translations API for Shakespearean translation
+- Custom translation algorithm with over 50 transformation rules
 - jQuery for DOM manipulation
 - Responsive design for all device sizes
 
-## API Limitations
+## Translation Logic
 
-The Fun Translations API has the following limits on the free tier:
-- 5 translations per hour
-- 60 translations per day
+The translation works by applying a set of rules to convert modern English phrases and words to their Shakespearean equivalents:
+
+- Pronoun transformations (you → thee/thou)
+- Verb form adjustments (have → hath, will → shalt)
+- Vocabulary substitutions (friend → fellow)
+- Adding period-appropriate phrases and exclamations
+- Random stylistic elements to make each translation unique
 
 ## Local Development
 
@@ -50,6 +55,10 @@ To run the application locally:
    ```
 4. Open your browser and navigate to `http://localhost:3000`
 
+## Offline Usage
+
+Once loaded, the application works completely offline since all translation is performed locally in the browser.
+
 ## Browser Compatibility
 
 The speech recognition feature works best in:
@@ -62,7 +71,7 @@ It may not work properly in Firefox or other browsers that don't fully support t
 ## Credits
 
 - Web Speech API
-- [Fun Translations API](https://funtranslations.com/)
+- Original concept inspired by Shakespearean literature
 
 ## License
 
