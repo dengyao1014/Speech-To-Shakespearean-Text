@@ -635,6 +635,55 @@
                 font-size: 2rem;
             }
         }
+        
+        /* 输入框和清空按钮 */
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        
+        .clear-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            color: #6b7280;
+            padding: 0;
+            border: none;
+        }
+        
+        .clear-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            background-color: rgba(255, 255, 255, 1);
+            color: #ef4444;
+        }
+        
+        .clear-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* 屏幕阅读器专用样式 */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     </style>
 </head>
 <body>
@@ -745,7 +794,15 @@
             </div>
             <div class="translator-tool">
                 <div class="translation-container">
-                    <textarea id="text-input" placeholder="Your modern English will appear here..."></textarea>
+                    <div class="input-wrapper">
+                        <textarea id="text-input" placeholder="Your modern English will appear here..."></textarea>
+                        <button id="clear-btn" class="clear-btn" title="Clear text">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 
                 <div class="button-group">

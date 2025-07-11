@@ -5,6 +5,7 @@ var content = "";
 var txtInput = $("#text-input");
 var btnStart = $("#btn-start");
 var btnTranslate = $("#btn-translate");
+var btnClear = $("#clear-btn");
 var output = $("#output");
 
 // Set speech recognition parameters
@@ -28,6 +29,18 @@ btnTranslate.click(function(){
         var translatedText = transformToShakespearean(content);
         output.text(translatedText);
     }, 500); // Add small delay for effect
+});
+
+// Clear button click event
+btnClear.click(function(){
+    // Clear the input text area
+    txtInput.val("");
+    
+    // Reset the content variable
+    content = "";
+    
+    // Focus on the input field for immediate typing
+    txtInput.focus();
 });
 
 // Shakespearean transformation function
